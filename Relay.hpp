@@ -6,6 +6,7 @@ class Relay
     Relay(uint8_t pin);
     void ON();
     void OFF();
+    void on_off_timeout();
   private:
     uint8_t __pin;
 };
@@ -26,3 +27,9 @@ void Relay::OFF()
   digitalWrite(this->__pin, LOW);
 }
 
+void Relay::on_off_timeout(long timeout)
+{
+  digitalWrite(this->__pin, HIGH);
+  delay(timeout);
+  digitalWrite(this->__pin, LOW);
+}
