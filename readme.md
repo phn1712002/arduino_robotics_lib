@@ -40,4 +40,4 @@ rm -r arduino_robotics_lib
 
     * Nội dung của mã nguồn này được lấy từ nhiều tác giả và đôi chút có sửa đổi để phù hợp với tôi.
 
-    * Cảm ơn tất cả các tác giả đã viết mã nguồn giúp tôi nghiên cứ phát triển Robot trong thời gian qua
+    * Cảm ơn tất cả các tác giả đã viết mã nguồn giúp tôi nghiên cứ phát triển Robot trong thời gian qua.
