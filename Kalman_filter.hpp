@@ -18,11 +18,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "Arduino.h"
 
-class KalmanFilter
+class Kalman_filter
 {
     public:
 
-	KalmanFilter(double angle = 0.001, double bias = 0.003, double measure = 0.03);
+	Kalman_filter(double angle = 0.001, double bias = 0.003, double measure = 0.03);
 	double update(double newValue, double newRate);
 
     private:
@@ -34,7 +34,7 @@ class KalmanFilter
 	double dt, kt;
 };
 
-KalmanFilter::KalmanFilter(double angle, double bias, double measure)
+Kalman_filter::Kalman_filter(double angle, double bias, double measure)
 {
     Q_angle = angle;
     Q_bias = bias;
@@ -51,7 +51,7 @@ KalmanFilter::KalmanFilter(double angle, double bias, double measure)
     kt = (double)micros();
 }
 
-double KalmanFilter::update(double newValue, double newRate)
+double Kalman_filter::update(double newValue, double newRate)
 {
     dt = (double)(micros() - kt) / 1000000;
 
