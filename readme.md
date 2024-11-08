@@ -2,6 +2,13 @@
     * Thư viện được viết để sử dụng với PlatformIO
     * Hãy tạo thư mục đã "pio init" và truy cập vào "src" để cài đặt.
 
+## Cách sử dụng
+```c++
+    #include <Arduino.h>
+    #include <Pid..hpp>
+    // #include <[name_file].hpp>
+```
+
 ## Cài đặt trên windowns (CMD)
 
 ```bash
