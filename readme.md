@@ -1,4 +1,8 @@
-## Installation in windowns (CMD)
+# Thư viện Robot của Arduino
+    * Thư viện được viết để sử dụng với PlatformIO
+    * Hãy tạo thư mục pio init và truy cập vào src để cài đặt.
+
+## Cài đặt trên windowns (CMD)
 
 ```bash
 git clone https://github.com/phn1712002/arduino_robotics_lib.git
@@ -9,7 +13,7 @@ rmdir /s /q arduino_robotics_lib
 exit
 ```
 
-## Installation in linux (BASH)
+## Cài đặt trên linux (BASH)
 
 ```bash
 git clone https://github.com/phn1712002/arduino_robotics_lib.git
