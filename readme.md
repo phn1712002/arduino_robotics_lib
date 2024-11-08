@@ -1,6 +1,6 @@
 # Thư viện Robot của Arduino
     * Thư viện được viết để sử dụng với PlatformIO
-    * Hãy tạo thư mục pio init và truy cập vào src để cài đặt.
+    * Hãy tạo thư mục đã "pio init" và truy cập vào "src" để cài đặt.
 
 ## Cài đặt trên windowns (CMD)
 
