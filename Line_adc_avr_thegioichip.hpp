@@ -1,3 +1,6 @@
+/*
+    Read: https://thegioichip.com.vn/products/do-lai-adc-avr
+*/
 #include "Arduino.h"
 
 class Detect_line
