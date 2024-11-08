@@ -9,8 +9,6 @@ public:
     void print_value(bool inv);
     int read_stop_line();
     int *get_status_stop_line();
-    int *get_status_stop_lineDir();
-    bool read_stop_line_dir();
     bool read_break_stop_line();
 
 private:
@@ -63,29 +61,6 @@ int *Detect_line::get_status_stop_line()
     status[1] = this->__status[7];
 
     return status;
-}
-
-int *Detect_line::get_status_stop_lineDir()
-{
-    int *status = new int[2];
-    this->__status[3] = read_value(this->__pin3, this->__reverse_value);
-    this->__status[4] = read_value(this->__pin4, this->__reverse_value);
-
-    status[0] = this->__status[3];
-    status[1] = this->__status[4];
-
-    return status;
-}
-
-bool Detect_line::read_stop_line_dir()
-{
-    this->get_status_stop_lineDir();
-    int check = this->__reverse_value == 0 ? 1 : 0;
-    if (this->__status[3] == check)
-        return true;
-    else if (this->__status[4] == check)
-        return true;
-    return false;
 }
 
 int *Detect_line::get_all_status()
