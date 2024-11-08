@@ -17,6 +17,8 @@
     dRot = -convert_joystick_neg1to1(ps2x.Analog(PSS_X)) * max_platform_rotation_velocity_degreesPerSec;
     
     all_rpm_current = kinematics.get_rpm(dx, dy, dRot);
+    or
+    all_rpm_current = kinematics.get_rpm_use_joystick(convert_joystick_neg1to1(ps2x.Analog(PSS_X)), convert_joystick_neg1to1(ps2x.Analog(PSS_Y)), -convert_joystick_neg1to1(ps2x.Analog(PSS_X)))
 */
 
 #include "Arduino.h"
