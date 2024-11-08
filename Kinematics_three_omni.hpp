@@ -35,12 +35,7 @@ public:
         float linear_y;
         float angular_z;
     };
-
-    struct pwm
-    {
-        int motorPwm[3];
-    };
-
+	
     rpm get_rpm(float linear_x, float linear_y, float angular_z);
 
     float _bodyWheelOffsetMeters;
