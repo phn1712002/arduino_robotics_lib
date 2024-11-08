@@ -47,11 +47,11 @@ class Kinematics
       float angular_z;
     };
     Kinematics(int motor_max_rpm, float wheel_diameter, float fr_wheels_dist, float lr_wheels_dist, int pwm_bits);
-    velocities getVelocities(int motor1, int motor2);
-    velocities getVelocities(int motor1, int motor2, int motor3, int motor4);
-    output getRPM(float linear_x, float linear_y, float angular_z);
-    output getPWM(float linear_x, float linear_y, float angular_z);
-    int rpmToPWM(int rpm);
+    velocities get_velocities(int motor1, int motor2);
+    velocities get_velocities(int motor1, int motor2, int motor3, int motor4);
+    output get_rpm(float linear_x, float linear_y, float angular_z);
+    output get_pwm(float linear_x, float linear_y, float angular_z);
+    int rpm_to_pwm(int rpm);
 
   private:
     float linear_vel_x_mins_;
@@ -78,7 +78,7 @@ Kinematics::Kinematics(int motor_max_rpm, float wheel_diameter, float fr_wheels_
 {
 }
 
-Kinematics::output Kinematics::getRPM(float linear_x, float linear_y, float angular_z)
+Kinematics::output Kinematics::get_rpm(float linear_x, float linear_y, float angular_z)
 {
   //convert m/s to m/min
   linear_vel_x_mins_ = linear_x * 60;
@@ -110,28 +110,28 @@ Kinematics::output Kinematics::getRPM(float linear_x, float linear_y, float angu
   return rpm;
 }
 
-Kinematics::output Kinematics::getPWM(float linear_x, float linear_y, float angular_z)
+Kinematics::output Kinematics::get_pwm(float linear_x, float linear_y, float angular_z)
 {
   Kinematics::output rpm;
   Kinematics::output pwm;
 
-  rpm = getRPM(linear_x, linear_y, angular_z);
+  rpm = get_rpm(linear_x, linear_y, angular_z);
 
   //convert from RPM to PWM
   //front-left motor
-  pwm.motor1 = rpmToPWM(rpm.motor1);
+  pwm.motor1 = rpm_to_pwm(rpm.motor1);
   //rear-left motor
-  pwm.motor2 = rpmToPWM(rpm.motor2);
+  pwm.motor2 = rpm_to_pwm(rpm.motor2);
 
   //front-right motor
-  pwm.motor3 = rpmToPWM(rpm.motor3);
+  pwm.motor3 = rpm_to_pwm(rpm.motor3);
   //rear-right motor
-  pwm.motor4 = rpmToPWM(rpm.motor4);
+  pwm.motor4 = rpm_to_pwm(rpm.motor4);
 
   return pwm;
 }
 
-Kinematics::velocities Kinematics::getVelocities(int motor1, int motor2)
+Kinematics::velocities Kinematics::get_velocities(int motor1, int motor2)
 {
   Kinematics::velocities vel;
 
@@ -148,7 +148,7 @@ Kinematics::velocities Kinematics::getVelocities(int motor1, int motor2)
   return vel;
 }
 
-Kinematics::velocities Kinematics::getVelocities(int motor1, int motor2, int motor3, int motor4)
+Kinematics::velocities Kinematics::get_velocities(int motor1, int motor2, int motor3, int motor4)
 {
   Kinematics::velocities vel;
 
@@ -170,7 +170,7 @@ Kinematics::velocities Kinematics::getVelocities(int motor1, int motor2, int mot
   return vel;
 }
 
-int Kinematics::rpmToPWM(int rpm)
+int Kinematics::rpm_to_pwm(int rpm)
 {
   //remap scale of target RPM vs MAX_RPM to PWM
   return (((float) rpm / (float) max_rpm_) * pwm_res_);
