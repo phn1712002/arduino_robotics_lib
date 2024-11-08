@@ -1,7 +1,6 @@
 #include <Arduino.h>
 
-class PID
-{
+class PID{
   public:
     PID(float, float, float);
     float compute(const float &);
